@@ -12,49 +12,36 @@ namespace SomeBinaryStuff
 
 
         Random rnd = new Random();
+        int rndNum = 0;
 
         int countRight = 0;
         int countFail = 0;
         private void startButton_Click(object sender, EventArgs e)
         {
-
-            if (checkBox1.Checked)
-            {
-                BinaryStuffLabel.Text = genNext16();
-            }
-            else
-            {
-                BinaryStuffLabel.Text = genNext2();
-            }
             countRight = 0;
             countFail = 0;
 
             startButton.Visible = false;
             stopButton.Visible = true;
             inputTextBox.Visible = true;
-            checkBox1.Visible = false;
+            
+            checkLabel.Text = "";
+            correctLabel.Text = "";
+            incorrectLabel.Text = "";
 
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
+
+            BinaryStuffLabel.Text = Convert.ToString(genNext(), Convert.ToInt32(fromComboBox.Text));
+
+
         }
 
         private void inputTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == (char)Keys.Enter)
             {
-                label4.Text = BinaryStuffLabel.Text;
+                lastBinaryLabel.Text = BinaryStuffLabel.Text;
               
                 checkNum();
-                if (checkBox1.Checked)
-                {
-                    BinaryStuffLabel.Text = genNext16();
-                }
-                else
-                {
-                    BinaryStuffLabel.Text = genNext2();
-                }
-             
             }
         }
 
@@ -62,81 +49,42 @@ namespace SomeBinaryStuff
         {
             startButton.Visible = true;
 
-            label2.Text = $"Правильных ответов:     {countRight}";
-            label3.Text = $"Неправильных ответов: {countFail}";
+            correctLabel.Text = $"Correct answers:  {countRight}";
+            incorrectLabel.Text = $"Incorrect answers:  {countFail}";
             BinaryStuffLabel.Text = "BinaryStuff";
 
-            label1.Text = "";
-            label4.Text = "";
+            checkLabel.Text = "";
+            lastBinaryLabel.Text = "";
             stopButton.Visible = false;
             inputTextBox.Visible = false;
-            checkBox1.Visible = true;
+        
         }
 
-
-        public string genNext16()
+        public int genNext()
         {
-            int integer = Convert.ToInt32(genNext2(), 2);
-            var tmp = Convert.ToString(integer, 16).ToUpper();
+            rndNum = rnd.Next(256);
+            return rndNum;
+        } 
 
-            if (tmp.Length < 2)
-                tmp = "0" + tmp;
-            return tmp;
-        }
-        public string genNext2()
-        {
-            var str = rnd.Next(2).ToString() + rnd.Next(2).ToString() + rnd.Next(2).ToString() + rnd.Next(2).ToString()+
-                      rnd.Next(2).ToString() + rnd.Next(2).ToString() + rnd.Next(2).ToString() + rnd.Next(2).ToString(); 
-
-            return str;
-        }
-
-        public void printAns(string s)
-        {
-            if (inputTextBox.Text.ToUpper() == s.ToUpper())
-            {
-                label1.Text = $"Верно.";
-                inputTextBox.Text = "";
-                countRight++;
-            }
-            else
-            {
-                label1.Text = $"Ошибка! {s}";
-                inputTextBox.Text = "";
-                countFail++;
-            }
-        }
 
         public void checkNum()
         {
-            var binary = BinaryStuffLabel.Text;
-            
-            
+       
+            var check = Convert.ToString(rndNum, Convert.ToInt32(toComboBox.Text));
 
-            if (checkBox1.Checked)
+            if ( check == inputTextBox.Text) 
             {
-          
-                int integer = Convert.ToInt32(binary, 16);
-                var check16 = Convert.ToString(integer, 2);
-                while(check16.Length < 8)
-                {
-                    check16 = "0" + check16;
-                }
-
-                printAns(check16);
+                checkLabel.Text = "Right";
+                countRight++;
             }
-          
             else
-            {
-                int integer = Convert.ToInt32(binary, 2);
-
-                var check2 = Convert.ToString(integer, 16);
-
-                printAns(check2);
+            {            
+                checkLabel.Text = $"Wrong! {check}";
+                countFail++;
             }
+
+            BinaryStuffLabel.Text = Convert.ToString(genNext(), Convert.ToInt32(fromComboBox.Text));
 
         }
-
-       
     }
 }
