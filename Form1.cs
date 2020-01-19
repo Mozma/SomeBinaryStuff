@@ -8,6 +8,9 @@ namespace SomeBinaryStuff
         public Form1()
         {
             InitializeComponent();
+
+            toComboBox.SelectedIndex = 2;
+            fromComboBox.SelectedIndex = 0;
         }
 
 
@@ -16,6 +19,9 @@ namespace SomeBinaryStuff
 
         int countRight = 0;
         int countFail = 0;
+
+       
+
         private void startButton_Click(object sender, EventArgs e)
         {
             countRight = 0;
@@ -30,8 +36,15 @@ namespace SomeBinaryStuff
             incorrectLabel.Text = "";
 
 
-            BinaryStuffLabel.Text = Convert.ToString(genNext(), Convert.ToInt32(fromComboBox.Text));
 
+            try
+            {
+                BinaryStuffLabel.Text = Convert.ToString(genNext(), Convert.ToInt32(fromComboBox.Text));
+            }
+            catch
+            {
+                MessageBox.Show("Something was missing!");
+            }
 
         }
 
@@ -69,7 +82,7 @@ namespace SomeBinaryStuff
 
         public void checkNum()
         {
-       
+        
             var check = Convert.ToString(rndNum, Convert.ToInt32(toComboBox.Text));
 
             if ( check == inputTextBox.Text) 
