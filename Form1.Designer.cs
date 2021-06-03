@@ -57,7 +57,7 @@
             // 
             // inputTextBox
             // 
-            this.inputTextBox.Location = new System.Drawing.Point(132, 206);
+            this.inputTextBox.Location = new System.Drawing.Point(132, 207);
             this.inputTextBox.MaximumSize = new System.Drawing.Size(164, 20);
             this.inputTextBox.MinimumSize = new System.Drawing.Size(164, 20);
             this.inputTextBox.Name = "inputTextBox";
@@ -69,7 +69,7 @@
             // BinaryStuffLabel
             // 
             this.BinaryStuffLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.BinaryStuffLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BinaryStuffLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BinaryStuffLabel.Location = new System.Drawing.Point(62, 61);
             this.BinaryStuffLabel.Margin = new System.Windows.Forms.Padding(53, 0, 3, 0);
             this.BinaryStuffLabel.MaximumSize = new System.Drawing.Size(302, 72);
@@ -96,7 +96,7 @@
             // checkLabel
             // 
             this.checkLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.checkLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkLabel.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkLabel.Location = new System.Drawing.Point(101, 160);
             this.checkLabel.Margin = new System.Windows.Forms.Padding(53, 0, 3, 0);
             this.checkLabel.Name = "checkLabel";
@@ -147,7 +147,7 @@
             this.fromLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromLabel.Location = new System.Drawing.Point(267, 8);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(38, 19);
+            this.fromLabel.Size = new System.Drawing.Size(34, 16);
             this.fromLabel.TabIndex = 11;
             this.fromLabel.Text = "from";
             // 
@@ -157,7 +157,7 @@
             this.toLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toLabel.Location = new System.Drawing.Point(348, 8);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(22, 19);
+            this.toLabel.Size = new System.Drawing.Size(19, 16);
             this.toLabel.TabIndex = 12;
             this.toLabel.Text = "to";
             // 
@@ -195,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(418, 314);
+            this.ClientSize = new System.Drawing.Size(418, 318);
             this.Controls.Add(this.toComboBox);
             this.Controls.Add(this.toLabel);
             this.Controls.Add(this.fromLabel);
